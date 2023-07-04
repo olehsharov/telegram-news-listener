@@ -1,5 +1,5 @@
 {
-  "name": "news-listener",
+  "name": "telegram-news-listener",
   "version": "1.0.0",
   "description": "",
   "type": "commonjs",
