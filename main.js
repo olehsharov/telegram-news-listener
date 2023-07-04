@@ -8,13 +8,13 @@ const { NewMessage } = require('telegram/events');
 const sessionId = fs.existsSync('.session') ? fs.readFileSync('.session').toString() : '';
 const stringSession = new session.StringSession(sessionId);
 
-let channelsText = fs.readFileSync('channels.txt').toString();
-let channels = channelsText.split('\n').map(c => c.trim());
+let usernamesContent = fs.readFileSync('usernames.allowed').toString();
+let usernames = usernamesContent.split('\n').map(c => c.trim());
 
 async function eventPrint(event) {
     const userName  = event.message._sender ? event.message._sender.username : null;
     const text = event.message.message;
-    if (channels.includes(userName)) {
+    if (usernames.includes(userName)) {
         console.log(`@${userName} [${phone}]: ${text}`);
     }
 }
